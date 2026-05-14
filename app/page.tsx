@@ -97,9 +97,7 @@ export default function HomePage() {
 
         const res =
           await fetch(
-
             "/api/get-products"
-
           );
 
         const data =
@@ -442,7 +440,6 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-5">
 
-            {/* Search */}
             <input
               type="text"
               placeholder="Search products..."
@@ -455,7 +452,6 @@ export default function HomePage() {
               className="p-4 rounded-2xl bg-black/30 border border-white/10 outline-none"
             />
 
-            {/* Category */}
             <select
               value={category}
               onChange={(e) =>
@@ -483,7 +479,6 @@ export default function HomePage() {
 
             </select>
 
-            {/* Sort */}
             <select
               value={sort}
               onChange={(e) =>
@@ -557,7 +552,6 @@ export default function HomePage() {
                     className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-[35px] overflow-hidden hover:scale-[1.02] transition-all duration-300"
                   >
 
-                    {/* Image */}
                     <div className="relative">
 
                       <img
@@ -570,22 +564,17 @@ export default function HomePage() {
                         className="w-full h-72 object-cover"
                       />
 
-                      {/* Wishlist */}
                       <button
                         onClick={() =>
                           toggleWishlist(
-
                             product._id
-
                           )
                         }
                         className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/50 backdrop-blur-xl flex items-center justify-center text-2xl hover:scale-110 transition-all duration-200"
                       >
 
                         {wishlist.includes(
-
                           product._id
-
                         )
 
                           ? "❤️"
@@ -596,7 +585,6 @@ export default function HomePage() {
 
                     </div>
 
-                    {/* Content */}
                     <div className="p-7">
 
                       <div className="flex justify-between items-center mb-4">
@@ -636,7 +624,6 @@ export default function HomePage() {
 
                       </p>
 
-                      {/* Actions */}
                       <div className="flex flex-col gap-4">
 
                         <Link
@@ -676,6 +663,134 @@ export default function HomePage() {
             </div>
 
           )}
+
+        </div>
+
+      </section>
+
+      {/* Help Center */}
+      <section className="relative z-10 px-6 pb-24">
+
+        <div className="max-w-7xl mx-auto">
+
+          <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-[40px] p-10 md:p-16 text-center overflow-hidden relative">
+
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+
+              <div className="absolute top-10 left-10 w-[250px] h-[250px] bg-blue-500/10 blur-[100px] rounded-full"></div>
+
+              <div className="absolute bottom-10 right-10 w-[250px] h-[250px] bg-purple-500/10 blur-[100px] rounded-full"></div>
+
+            </div>
+
+            <div className="relative z-10">
+
+              <h2 className="text-5xl font-black mb-6">
+
+                Help Center 💬
+
+              </h2>
+
+              <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed mb-12">
+
+                Need help with payments, downloads, account access,
+                products, or anything else? Contact us anytime 🚀
+
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+
+                {/* Telegram */}
+                <div className="bg-black/30 border border-white/10 rounded-[35px] p-8 hover:scale-[1.03] transition-all duration-300">
+
+                  <div className="text-6xl mb-6">
+
+                    📲
+
+                  </div>
+
+                  <h3 className="text-3xl font-black mb-4">
+
+                    Telegram Support
+
+                  </h3>
+
+                  <p className="text-gray-400 leading-relaxed mb-8">
+
+                    Fastest support for payment issues,
+                    download help, account support,
+                    and instant replies 😄
+
+                  </p>
+
+                  <a
+                    href="https://t.me/ABHAY-X-07"
+                    target="_blank"
+                    className="inline-block px-8 py-4 rounded-3xl bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all duration-200 text-lg font-black"
+                  >
+
+                    Open Telegram 🚀
+
+                  </a>
+
+                </div>
+
+                {/* Gmail */}
+                <div className="bg-black/30 border border-white/10 rounded-[35px] p-8 hover:scale-[1.03] transition-all duration-300">
+
+                  <div className="text-6xl mb-6">
+
+                    📧
+
+                  </div>
+
+                  <h3 className="text-3xl font-black mb-4">
+
+                    Gmail Support
+
+                  </h3>
+
+                  <p className="text-gray-400 leading-relaxed mb-8">
+
+                    Contact us anytime via email for
+                    business inquiries, technical support,
+                    refunds, and other help 🔥
+
+                  </p>
+
+                  <a
+                    href="mailto:abhigaming5554@gmail.com"
+                    className="inline-block px-8 py-4 rounded-3xl bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-200 text-lg font-black"
+                  >
+
+                    Send Email ✨
+
+                  </a>
+
+                </div>
+
+              </div>
+
+              <div className="mt-14">
+
+                <button
+                  onClick={() =>
+                    router.push(
+                      "/profile"
+                    )
+                  }
+                  className="px-10 py-5 rounded-3xl bg-white/10 hover:bg-white/20 active:scale-95 transition-all duration-200 text-xl font-black border border-white/10"
+                >
+
+                  Open My Account 👤
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
