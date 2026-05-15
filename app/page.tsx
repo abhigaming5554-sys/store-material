@@ -383,7 +383,7 @@ export default function HomePage() {
 
           <h1 className="text-6xl md:text-8xl font-black leading-tight mb-8">
 
-            Premium Digital
+            Abhay Premium Digital
 
             <span className="text-blue-500">
 
