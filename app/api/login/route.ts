@@ -25,11 +25,8 @@ export async function POST(
       await req.json();
 
     const {
-
       email,
-
       password,
-
     } = body;
 
     // Validation
@@ -50,13 +47,43 @@ export async function POST(
     }
 
     // Find User
-    const user =
+    let user =
       await User.findOne({
-
         email,
-
       });
 
+    // AUTO CREATE ADMIN
+    if (
+      !user &&
+      email ===
+        process.env
+          .ADMIN_EMAIL
+    ) {
+
+      const hashedPassword =
+        await bcrypt.hash(
+          password,
+          10
+        );
+
+      user =
+        await User.create({
+
+          name:
+            "Admin",
+
+          email,
+
+          password:
+            hashedPassword,
+
+          isAdmin: true,
+
+        });
+
+    }
+
+    // User not found
     if (!user) {
 
       return NextResponse.json({
@@ -104,6 +131,9 @@ export async function POST(
           email:
             user.email,
 
+          isAdmin:
+            user.isAdmin,
+
         },
 
         process.env
@@ -140,11 +170,14 @@ export async function POST(
           email:
             user.email,
 
+          isAdmin:
+            user.isAdmin,
+
         },
 
       });
 
-    // Secure Cookie
+    // Cookie
     response.cookies.set(
 
       "token",
